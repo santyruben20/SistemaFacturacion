@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Usuario Administrador</h1>
+
+    <table border="1">
+      <head>
+        <tr>
+          <td>ID</td>
+
+          <td>Nombres</td>
+
+          <td>Apellidos</td>
+
+          <td>Direccion</td>
+
+          <td>Telefonos</td>
+
+          <td>Email</td>
+
+          <td>Clave</td>
+
+          <td>Opciones</td>
+        </tr>
+      </head>
+
+      <tbody>
+        {% for bodeguero in bodegueros %}
+        <tr>
+          <td>{{ bodeguero.id }}</td>
+          <td>{{ bodeguero.nombres }}</td>
+          <td>{{ bodeguero.apellidos }}</td>
+          <td>{{ bodeguero.direccion }}</td>
+          <td>{{ bodeguero.telefono }}</td>
+          <td>{{ bodeguero.exp_laboral }}</td>
+          <td>{{ bodeguero.idiomas }}</td>
+          <td>{{ bodeguero.email }}</td>
+          <td>{{ bodeguero.clave }}</td>
+          <td>{{ bodeguero.creatAt }}</td>
+          <td>
+            <form action="{%url 'eliminar_bodeguero' bodeguero.id%}" method="DELETE">
+              {%csrf_token%}
+              <button value="delete">eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {%empty%}
+        <h1>no hay datos</h1>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

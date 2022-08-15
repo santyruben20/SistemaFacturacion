@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Usuario Administrador</h1>
+
+    <table border="1">
+      <head>
+        <tr>
+          <th>id</th>
+          <th>descripcion</th>
+          <th>bodeguero</th>
+          <td>Opciones</td>
+        </tr>
+      </head>
+
+      <tbody>
+        {% for categoria in categorias %}
+        <tr>
+          <td>{{ categoria.id }}</td>
+          <td>{{ categoria.descripcion }}</td>
+          <td>
+            <form action="{%url 'eliminar_categoria' categoria.id%}" method="DELETE">
+              {%csrf_token%}
+              <button value="delete">eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {%empty%}
+        <h1>no hay datos</h1>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

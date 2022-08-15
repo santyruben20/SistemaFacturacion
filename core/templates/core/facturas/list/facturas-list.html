@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Usuario Administrador</h1>
+
+    <table border="1">
+      <head>
+        <tr>
+          <th>id</th>
+          <th>fecha</th>
+          <th>cajero</th>
+          <th>cliente</th>
+          <th>usuario</th>
+          <th>creatAt</th>
+        </tr>
+      </head>
+
+      <tbody>
+        {% for factura in facturas %}
+        <tr>
+          <td>{{ factura.id }}</td>
+          <td>{{ factura.fecha }}</td>
+          <td>{{ factura.cajero }}</td>
+          <td>{{ factura.cliente }}</td>
+          <td>{{ factura.usuario }}</td>
+          <td>{{ factura.creatAt }}</td>
+          <td>
+            <form action="{%url 'eliminar_factura' factura.id%}" method="DELETE">
+              {%csrf_token%}
+              <button value="delete">eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {%empty%}
+        <h1>no hay datos</h1>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{%static 'registro_usuario.css'%}" />
+
+    <title>registro de bodegueros</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Registro de bodegueros</h1>
+    </header>
+    <form action="{% url 'registro_cajero'%}" method="POST">
+      {%csrf_token%}
+      <div class="container">
+        <input type="text" name="nombres" id="nombres" placeholder="nombres" />
+        <input type="text" name="apellidos" id="apellidos" placeholder="apellidos" />
+        <input type="text" name="direccion" id="direccion" placeholder="direccion" />
+        <input type="text" name="telefono" id="telefono" placeholder="telefono" />
+        <input type="text" name="exp_laboral" id="exp_laboral" placeholder="exp_laboral" />
+        <input type="text" name="idiomas" id="idiomas" placeholder="idiomas" />
+        <input type="text" name="email" id="email" placeholder="email" />
+        <input type="text" name="clave" id="clave" placeholder="clave" />
+        <input type="submit" value="Guardar" />
+      </div>
+    </form>
+  </body>
+</html>

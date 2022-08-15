@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Usuario Administrador</h1>
+
+    <table border="1">
+      <head>
+        <tr>
+          <td>ID</td>
+
+          <td>Nombres</td>
+
+          <td>Apellidos</td>
+
+          <td>Direccion</td>
+
+          <td>Telefonos</td>
+
+          <td>Email</td>
+
+          <td>Clave</td>
+
+          <td>Opciones</td>
+        </tr>
+      </head>
+
+      <tbody>
+        {% for cajero in cajeros %}
+        <tr>
+          <td>{{ cajero.id }}</td>
+          <td>{{ cajero.nombres }}</td>
+          <td>{{ cajero.apellidos }}</td>
+          <td>{{ cajero.direccion }}</td>
+          <td>{{ cajero.telefono }}</td>
+          <td>{{ cajero.exp_laboral }}</td>
+          <td>{{ cajero.idiomas }}</td>
+          <td>{{ cajero.email }}</td>
+          <td>{{ cajero.clave }}</td>
+          <td>{{ cajero.creatAt }}</td>
+          <td>
+            <form action="{%url 'eliminar_cajero' cajero.id%}" method="DELETE">
+              {%csrf_token%}
+              <button value="delete">eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {%empty%}
+        <h1>no hay datos</h1>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

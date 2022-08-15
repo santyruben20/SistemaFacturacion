@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Usuario Administrador</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+
+          <th>Nombres</th>
+
+          <th>Apellidos</th>
+
+          <th>Direccion</th>
+
+          <th>Telefonos</th>
+
+          <th>Email</th>
+
+          <th>Clave</th>
+
+          <th>Opciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+          <td>{{usuario.id}}</td>
+
+          <td>{{ usuario.nombres }}</td>
+
+          <td>{{ usuario.apellidos }}</td>
+
+          <td>{{ usuario.direccion }}</td>
+
+          <td>{{ usuario.telefono }}</td>
+
+          <td>{{ usuario.email }}</td>
+
+          <td>{{ usuario.clave }}</td>
+
+          <td>
+            <form action="{%url 'eliminar_usuario' usuario.id%}" method="DELETE">
+              {%csrf_token%}
+              <button value="delete">eliminar</button>
+            </form>
+          </td>
+        </tr>
+
+        {%empty%}
+        <h1>no hay datos</h1>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

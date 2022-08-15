@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>REPL</title>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+
+    <style>
+      .menu-horizontal {
+        border: 0.061rem solid gray;
+        display: flex;
+        flex-direction: columns;
+        gap: 1rem;
+        padding: 5rem 2rem;
+        width: 100%;
+      }
+      .menu-horizontal li {
+        width: 100%;
+      }
+      .menu-horizontal li label {
+        font-weight: bold;
+      }
+
+      .menu-vertical {
+        padding: 1rem 0rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 style="padding: 2rem 1rem; font-weight: bold">Administrador</h1>
+    </header>
+
+    <nav>
+      <div>
+        <ul class="menu-horizontal">
+          <li>
+            <label for="">Gestion de Usuarios</label>
+
+            <ul class="menu-vertical">
+              <li><label for="">Usuario Administrador</label></li>
+
+              <ul class="menu-vertical">
+                <li><a href="usuarios-form">nuevo</a></li>
+
+                <li><a href="usuarios-list">listar</a></li>
+              </ul>
+
+              <li><label for="">Bodeguero</label></li>
+
+              <ul class="menu-vertical">
+                <li><a href="bodegueros-form">nuevo</a></li>
+
+                <li><a href="bodegueros-list">listar</a></li>
+              </ul>
+
+              <li><label for="">Cajero</label></li>
+
+              <ul class="menu-vertical">
+                <li><a href="cajeros-form">nuevo</a></li>
+
+                <li><a href="cajeros-list">listar</a></li>
+              </ul>
+            </ul>
+          </li>
+
+          <li>
+            <label for="">Gestion de productos</label>
+
+            <ul class="menu-vertical">
+              <li><label for="">Categorias</label></li>
+
+              <ul class="menu-vertical">
+                <li><a href="categorias-form">Nuevo</a></li>
+
+                <li><a href="categorias-list">Listar</a></li>
+              </ul>
+
+              <li><label for="">Productos</label></li>
+
+              <ul class="menu-vertical">
+                <li><a href="productos-form">Nuevo</a></li>
+
+                <li><a href="productos-list">Listar</a></li>
+              </ul>
+            </ul>
+          </li>
+
+          <li>
+            <label for="">Gestion Clientes</label>
+
+            <ul class="menu-vertical">
+              <li><a href="clientes-form">Nuevo cliente</a></li>
+
+              <li><a href="clientes-list">Listar clientes</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <label for="">Facturas</label>
+
+            <ul class="menu-vertical">
+              <li><a href="preformas-form">generar factura</a></li>
+
+              <li><a href="facturas-list">listar facturas</a></li>
+            </ul>
+          </li>
+
+          <li><a href="login">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>
